@@ -15,16 +15,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class BranchOnNotNull implements Instruction {
-    final Integer OpCode = 0x3A;
-    final String AssemblyFormat = "brinst";
+    public final static Integer OpCode = 0x3A;
+    public final static String AssemblyFormat = "brinst";
 
     public Integer Target = 0;
 
     public Integer getOpCode(){
-        return this.OpCode;
+        return BranchOnNotNull.OpCode;
     }
     public String getAssemblyFormat() {
-        return this.AssemblyFormat;
+        return BranchOnNotNull.AssemblyFormat;
     }
 
     public List<Class> getThrownExceptions(){

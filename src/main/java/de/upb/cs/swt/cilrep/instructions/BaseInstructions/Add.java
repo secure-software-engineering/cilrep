@@ -14,14 +14,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Add implements Instruction {
-    final Integer OpCode = 0x58;
-    final String AssemblyFormat = "add";
+    public final static Integer OpCode = 0x58;
+    public final static String AssemblyFormat = "add";
 
     public Integer getOpCode(){
-        return this.OpCode;
+        return Add.OpCode;
     }
     public String getAssemblyFormat() {
-        return this.AssemblyFormat;
+        return Add.AssemblyFormat;
     }
 
     public List<Class> getThrownExceptions(){

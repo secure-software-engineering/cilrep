@@ -14,16 +14,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class BranchOnLessThan implements Instruction {
-    final Integer OpCode = 0x3F;
-    final String AssemblyFormat = "blt";
+    public final static Integer OpCode = 0x3F;
+    public final static String AssemblyFormat = "blt";
 
     public Integer Target = 0;
 
     public Integer getOpCode(){
-        return this.OpCode;
+        return BranchOnLessThan.OpCode;
     }
     public String getAssemblyFormat() {
-        return this.AssemblyFormat;
+        return BranchOnLessThan.AssemblyFormat;
     }
 
     public List<Class> getThrownExceptions(){

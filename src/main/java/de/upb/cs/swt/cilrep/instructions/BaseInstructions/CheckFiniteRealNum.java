@@ -15,15 +15,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CheckFiniteRealNum implements Instruction {
-    final Integer OpCode = 0xC3;
-    final String AssemblyFormat = "Ckfinite";
+    public final static Integer OpCode = 0xC3;
+    public final static String AssemblyFormat = "Ckfinite";
 
 
     public Integer getOpCode(){
-        return this.OpCode;
+        return CheckFiniteRealNum.OpCode;
     }
     public String getAssemblyFormat() {
-        return this.AssemblyFormat;
+        return CheckFiniteRealNum.AssemblyFormat;
     }
 
     public List<Class> getThrownExceptions(){

@@ -14,15 +14,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ConvertToIntNativeUnsigned implements Instruction {
-    final Integer OpCode = 0xE0;
-    final String AssemblyFormat = "conv.u";
+    public final static Integer OpCode = 0xE0;
+    public final static String AssemblyFormat = "conv.u";
 
 
     public Integer getOpCode(){
-        return this.OpCode;
+        return ConvertToIntNativeUnsigned.OpCode;
     }
     public String getAssemblyFormat() {
-        return this.AssemblyFormat;
+        return ConvertToIntNativeUnsigned.AssemblyFormat;
     }
 
     public List<Class> getThrownExceptions(){

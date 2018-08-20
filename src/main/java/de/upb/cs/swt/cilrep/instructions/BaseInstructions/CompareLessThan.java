@@ -14,15 +14,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CompareLessThan implements Instruction {
-    final Integer OpCode = 0xFE04;
-    final String AssemblyFormat = "Clt";
+    public final static Integer OpCode = 0xFE04;
+    public final static String AssemblyFormat = "Clt";
 
 
     public Integer getOpCode(){
-        return this.OpCode;
+        return CompareLessThan.OpCode;
     }
     public String getAssemblyFormat() {
-        return this.AssemblyFormat;
+        return CompareLessThan.AssemblyFormat;
     }
 
     public List<Class> getThrownExceptions(){

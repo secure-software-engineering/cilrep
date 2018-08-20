@@ -1,7 +1,7 @@
 /**
- * ConvertToInt32UnsignedOverflow.java
- * Convert to an unsigned int32 (on the stack as int32) and
- * throw an exception on overflow
+ * ConvertUnsignedToInt8UnOvf.java
+ * Convert unsigned to an unsigned int8 (on the stack as int32)
+ * and throw an exception on overflow.
  *
  * @author Numan Ijaz
  * @version 1.0 8/20/2018
@@ -15,16 +15,16 @@ import de.upb.cs.swt.cilrep.instructions.Instruction;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ConvertToInt32UnsignedOverflow implements Instruction {
-    final Integer OpCode = 0xB8;
-    final String AssemblyFormat = "conv.ovf.u4";
+public class ConvertUnsignedToInt8UnOvf implements Instruction {
+    public final static Integer OpCode = 0x86;
+    public final static String AssemblyFormat = "conv.ovf.u1.un";
 
 
     public Integer getOpCode(){
-        return this.OpCode;
+        return ConvertUnsignedToInt8UnOvf.OpCode;
     }
     public String getAssemblyFormat() {
-        return this.AssemblyFormat;
+        return ConvertUnsignedToInt8UnOvf.AssemblyFormat;
     }
 
     public List<Class> getThrownExceptions(){

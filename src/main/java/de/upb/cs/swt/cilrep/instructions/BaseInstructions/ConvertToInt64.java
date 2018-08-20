@@ -14,15 +14,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ConvertToInt64 implements Instruction {
-    final Integer OpCode = 0x6A;
-    final String AssemblyFormat = "conv.i8";
+    public final static Integer OpCode = 0x6A;
+    public final static String AssemblyFormat = "conv.i8";
 
 
     public Integer getOpCode(){
-        return this.OpCode;
+        return ConvertToInt64.OpCode;
     }
     public String getAssemblyFormat() {
-        return this.AssemblyFormat;
+        return ConvertToInt64.AssemblyFormat;
     }
 
     public List<Class> getThrownExceptions(){

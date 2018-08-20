@@ -14,16 +14,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class BranchOnEqual implements Instruction {
-    final Integer OpCode = 0x3B;
-    final String AssemblyFormat = "beq";
+    public final static Integer OpCode = 0x3B;
+    public final static String AssemblyFormat = "beq";
 
     public Integer Target = 0;
 
     public Integer getOpCode(){
-        return this.OpCode;
+        return BranchOnEqual.OpCode;
     }
     public String getAssemblyFormat() {
-        return this.AssemblyFormat;
+        return BranchOnEqual.AssemblyFormat;
     }
 
     public List<Class> getThrownExceptions(){

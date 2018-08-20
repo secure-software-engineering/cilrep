@@ -14,16 +14,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class BranchUnconditionalShort implements Instruction {
-    final Integer OpCode = 0x2B;
-    final String AssemblyFormat = "br.s";
+    public final static Integer OpCode = 0x2B;
+    public final static String AssemblyFormat = "br.s";
 
     public Integer Target = 0;
 
     public Integer getOpCode(){
-        return this.OpCode;
+        return BranchUnconditionalShort.OpCode;
     }
     public String getAssemblyFormat() {
-        return this.AssemblyFormat;
+        return BranchUnconditionalShort.AssemblyFormat;
     }
 
     public List<Class> getThrownExceptions(){

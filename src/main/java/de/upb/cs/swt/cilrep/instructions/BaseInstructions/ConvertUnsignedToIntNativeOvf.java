@@ -1,7 +1,7 @@
 /**
- * ConvertToInt64Unsigned.java
- * Convert to an unsigned int64 (on the stack as int64) and
- * throw an exception on overflow.
+ * ConvertUnsignedToIntNativeOvf.java
+ * Convert unsigned to a native int (on the stack as native int)
+ * and throw an exception on overflow.
  *
  * @author Numan Ijaz
  * @version 1.0 8/20/2018
@@ -15,16 +15,16 @@ import de.upb.cs.swt.cilrep.instructions.Instruction;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ConvertToInt64UnsignedOverflow implements Instruction {
-    final Integer OpCode = 0xBA;
-    final String AssemblyFormat = "conv.ovf.u8";
+public class ConvertUnsignedToIntNativeOvf implements Instruction {
+    public final static Integer OpCode = 0x8A;
+    public final static String AssemblyFormat = "conv.ovf.i.un";
 
 
     public Integer getOpCode(){
-        return this.OpCode;
+        return ConvertUnsignedToIntNativeOvf.OpCode;
     }
     public String getAssemblyFormat() {
-        return this.AssemblyFormat;
+        return ConvertUnsignedToIntNativeOvf.AssemblyFormat;
     }
 
     public List<Class> getThrownExceptions(){

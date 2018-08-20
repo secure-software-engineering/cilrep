@@ -16,15 +16,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ConvertToInt32Overflow implements Instruction {
-    final Integer OpCode = 0xB7;
-    final String AssemblyFormat = "conv.ovf.i4";
+    public final static Integer OpCode = 0xB7;
+    public final static String AssemblyFormat = "conv.ovf.i4";
 
 
     public Integer getOpCode(){
-        return this.OpCode;
+        return ConvertToInt32Overflow.OpCode;
     }
     public String getAssemblyFormat() {
-        return this.AssemblyFormat;
+        return ConvertToInt32Overflow.AssemblyFormat;
     }
 
     public List<Class> getThrownExceptions(){

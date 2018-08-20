@@ -1,7 +1,6 @@
 /**
- * ConvertToInt8Overflow.java
- * Convert to an int8 (on the stack as int32) and throw an
- * exception on overflow.
+ * LoadConstant3.java
+ * Push 3 onto the stack as int32.
  *
  * @author Numan Ijaz
  * @version 1.0 8/20/2018
@@ -9,27 +8,25 @@
 
 package de.upb.cs.swt.cilrep.instructions.BaseInstructions;
 
-import de.upb.cs.swt.cilrep.exceptions.OverflowException;
 import de.upb.cs.swt.cilrep.instructions.Instruction;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class ConvertToInt8Overflow implements Instruction {
-    final Integer OpCode = 0xB3;
-    final String AssemblyFormat = "conv.ovf.i1";
+public class LoadConstant3 implements Instruction {
+    public final static Integer OpCode = 0x19;
+    public final static  String AssemblyFormat = "ldc.i4.3";
 
 
     public Integer getOpCode(){
-        return this.OpCode;
+        return LoadConstant3.OpCode;
     }
     public String getAssemblyFormat() {
-        return this.AssemblyFormat;
+        return LoadConstant3.AssemblyFormat;
     }
 
     public List<Class> getThrownExceptions(){
         List<Class> exceptions = new ArrayList<Class>();
-        exceptions.add(OverflowException.class);
         return exceptions;
     }
 }

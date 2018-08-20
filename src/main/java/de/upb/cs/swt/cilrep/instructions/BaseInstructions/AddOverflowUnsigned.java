@@ -15,14 +15,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class AddOverflowUnsigned implements Instruction {
-    final Integer OpCode = 0xD7;
-    final String AssemblyFormat = "add.ovf.un";
+    public final static Integer OpCode = 0xD7;
+    public final static String AssemblyFormat = "add.ovf.un";
 
     public Integer getOpCode(){
-        return this.OpCode;
+        return AddOverflowUnsigned.OpCode;
     }
     public String getAssemblyFormat() {
-        return this.AssemblyFormat;
+        return AddOverflowUnsigned.AssemblyFormat;
     }
 
     public List<Class> getThrownExceptions(){

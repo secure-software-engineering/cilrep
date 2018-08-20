@@ -14,15 +14,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ConvertToIntNative implements Instruction {
-    final Integer OpCode = 0xD3;
-    final String AssemblyFormat = "conv.i";
+    public final static Integer OpCode = 0xD3;
+    public final static String AssemblyFormat = "conv.i";
 
 
     public Integer getOpCode(){
-        return this.OpCode;
+        return ConvertToIntNative.OpCode;
     }
     public String getAssemblyFormat() {
-        return this.AssemblyFormat;
+        return ConvertToIntNative.AssemblyFormat;
     }
 
     public List<Class> getThrownExceptions(){

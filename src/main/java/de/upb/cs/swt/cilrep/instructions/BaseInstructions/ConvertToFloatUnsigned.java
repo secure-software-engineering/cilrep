@@ -14,15 +14,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ConvertToFloatUnsigned implements Instruction {
-    final Integer OpCode = 0x76;
-    final String AssemblyFormat = "conv.r.un";
+    public final static Integer OpCode = 0x76;
+    public final static String AssemblyFormat = "conv.r.un";
 
 
     public Integer getOpCode(){
-        return this.OpCode;
+        return ConvertToFloatUnsigned.OpCode;
     }
     public String getAssemblyFormat() {
-        return this.AssemblyFormat;
+        return ConvertToFloatUnsigned.AssemblyFormat;
     }
 
     public List<Class> getThrownExceptions(){

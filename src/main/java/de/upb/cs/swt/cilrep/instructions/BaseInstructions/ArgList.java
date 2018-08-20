@@ -14,14 +14,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ArgList implements Instruction {
-    final Integer OpCode = 0xFE00;
-    final String AssemblyFormat = "arglist";
+    public final static Integer OpCode = 0xFE00;
+    public final static String AssemblyFormat = "arglist";
 
     public Integer getOpCode(){
-        return this.OpCode;
+        return ArgList.OpCode;
     }
     public String getAssemblyFormat() {
-        return this.AssemblyFormat;
+        return ArgList.AssemblyFormat;
     }
 
     public List<Class> getThrownExceptions(){

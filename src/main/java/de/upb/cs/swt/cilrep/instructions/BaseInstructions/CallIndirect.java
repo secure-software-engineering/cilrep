@@ -18,16 +18,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CallIndirect implements Instruction {
-    final Integer OpCode = 0x29;
-    final String AssemblyFormat = "calli";
+    public final static Integer OpCode = 0x29;
+    public final static String AssemblyFormat = "calli";
 
     public String callSiteDescription = ""; // to be replaced later on
 
     public Integer getOpCode(){
-        return this.OpCode;
+        return CallIndirect.OpCode;
     }
     public String getAssemblyFormat() {
-        return this.AssemblyFormat;
+        return CallIndirect.AssemblyFormat;
     }
 
     public List<Class> getThrownExceptions(){

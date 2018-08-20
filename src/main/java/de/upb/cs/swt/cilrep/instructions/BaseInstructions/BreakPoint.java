@@ -14,14 +14,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class BreakPoint implements Instruction {
-    final Integer OpCode = 0x01;
-    final String AssemblyFormat = "break";
+    public final static Integer OpCode = 0x01;
+    public final static String AssemblyFormat = "break";
 
     public Integer getOpCode(){
-        return this.OpCode;
+        return BreakPoint.OpCode;
     }
     public String getAssemblyFormat() {
-        return this.AssemblyFormat;
+        return BreakPoint.AssemblyFormat;
     }
 
     public List<Class> getThrownExceptions(){

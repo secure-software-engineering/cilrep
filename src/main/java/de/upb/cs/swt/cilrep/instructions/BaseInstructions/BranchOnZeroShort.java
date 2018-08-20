@@ -14,16 +14,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class BranchOnZeroShort implements Instruction {
-    final Integer OpCode = 0x2C;
-    final String AssemblyFormat = "brzero.s";
+    public final static Integer OpCode = 0x2C;
+    public final static String AssemblyFormat = "brzero.s";
 
     public Integer Target = 0;
 
     public Integer getOpCode(){
-        return this.OpCode;
+        return BranchOnZeroShort.OpCode;
     }
     public String getAssemblyFormat() {
-        return this.AssemblyFormat;
+        return BranchOnZeroShort.AssemblyFormat;
     }
 
     public List<Class> getThrownExceptions(){

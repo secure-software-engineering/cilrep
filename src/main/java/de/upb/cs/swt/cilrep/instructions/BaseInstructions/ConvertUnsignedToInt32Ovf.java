@@ -1,6 +1,6 @@
 /**
- * ConvertToInt16UnsignedOverflow.java
- * Convert to an unsigned int16 (on the stack as int32) and
+ * ConvertUnsignedToInt32Ovf.java
+ * Convert unsigned to an int32 (on the stack as int32) and
  * throw an exception on overflow.
  *
  * @author Numan Ijaz
@@ -15,16 +15,16 @@ import de.upb.cs.swt.cilrep.instructions.Instruction;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ConvertToInt16UnsignedOverflow implements Instruction {
-    final Integer OpCode = 0xB6;
-    final String AssemblyFormat = "conv.ovf.u2";
+public class ConvertUnsignedToInt32Ovf implements Instruction {
+    public final static Integer OpCode = 0x84;
+    public final static String AssemblyFormat = "conv.ovf.i4.un";
 
 
     public Integer getOpCode(){
-        return this.OpCode;
+        return ConvertUnsignedToInt32Ovf.OpCode;
     }
     public String getAssemblyFormat() {
-        return this.AssemblyFormat;
+        return ConvertUnsignedToInt32Ovf.AssemblyFormat;
     }
 
     public List<Class> getThrownExceptions(){

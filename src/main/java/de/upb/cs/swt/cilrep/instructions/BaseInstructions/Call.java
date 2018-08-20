@@ -17,16 +17,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Call implements Instruction {
-    final Integer OpCode = 0x28;
-    final String AssemblyFormat = "call";
+    public final static Integer OpCode = 0x28;
+    public final static String AssemblyFormat = "call";
 
     public String method = ""; // to be replaced later on
 
     public Integer getOpCode(){
-        return this.OpCode;
+        return Call.OpCode;
     }
     public String getAssemblyFormat() {
-        return this.AssemblyFormat;
+        return Call.AssemblyFormat;
     }
 
     public List<Class> getThrownExceptions(){

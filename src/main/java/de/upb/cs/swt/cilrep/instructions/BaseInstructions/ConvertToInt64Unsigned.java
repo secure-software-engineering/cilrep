@@ -14,15 +14,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ConvertToInt64Unsigned implements Instruction {
-    final Integer OpCode = 0x6E;
-    final String AssemblyFormat = "conv.u8";
+    public final static Integer OpCode = 0x6E;
+    public final static String AssemblyFormat = "conv.u8";
 
 
     public Integer getOpCode(){
-        return this.OpCode;
+        return ConvertToInt64Unsigned.OpCode;
     }
     public String getAssemblyFormat() {
-        return this.AssemblyFormat;
+        return ConvertToInt64Unsigned.AssemblyFormat;
     }
 
     public List<Class> getThrownExceptions(){

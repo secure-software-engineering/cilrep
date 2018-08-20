@@ -14,15 +14,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CompareEqual implements Instruction {
-    final Integer OpCode = 0xFE01;
-    final String AssemblyFormat = "Ceq";
+    public final static Integer OpCode = 0xFE01;
+    public final static String AssemblyFormat = "Ceq";
 
 
     public Integer getOpCode(){
-        return this.OpCode;
+        return CompareEqual.OpCode;
     }
     public String getAssemblyFormat() {
-        return this.AssemblyFormat;
+        return CompareEqual.AssemblyFormat;
     }
 
     public List<Class> getThrownExceptions(){

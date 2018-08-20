@@ -14,14 +14,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class And implements Instruction {
-    final Integer OpCode = 0xFE00;
-    final String AssemblyFormat = "and";
+    public final static Integer OpCode = 0xFE00;
+    public final static String AssemblyFormat = "and";
 
     public Integer getOpCode(){
-        return this.OpCode;
+        return And.OpCode;
     }
     public String getAssemblyFormat() {
-        return this.AssemblyFormat;
+        return And.AssemblyFormat;
     }
 
     public List<Class> getThrownExceptions(){

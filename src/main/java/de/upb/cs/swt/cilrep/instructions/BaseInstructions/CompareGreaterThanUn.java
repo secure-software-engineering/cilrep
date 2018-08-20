@@ -15,15 +15,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CompareGreaterThanUn implements Instruction {
-    final Integer OpCode = 0xFE03;
-    final String AssemblyFormat = "cgt.un";
+    public final static Integer OpCode = 0xFE03;
+    public final static String AssemblyFormat = "cgt.un";
 
 
     public Integer getOpCode(){
-        return this.OpCode;
+        return CompareGreaterThanUn.OpCode;
     }
     public String getAssemblyFormat() {
-        return this.AssemblyFormat;
+        return CompareGreaterThanUn.AssemblyFormat;
     }
 
     public List<Class> getThrownExceptions(){

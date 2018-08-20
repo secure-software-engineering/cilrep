@@ -14,15 +14,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ConvertToFloat32 implements Instruction {
-    final Integer OpCode = 0x6B;
-    final String AssemblyFormat = "conv.r4";
+    public final static Integer OpCode = 0x6B;
+    public final static String AssemblyFormat = "conv.r4";
 
 
     public Integer getOpCode(){
-        return this.OpCode;
+        return ConvertToFloat32.OpCode;
     }
     public String getAssemblyFormat() {
-        return this.AssemblyFormat;
+        return ConvertToFloat32.AssemblyFormat;
     }
 
     public List<Class> getThrownExceptions(){

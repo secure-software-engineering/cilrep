@@ -14,15 +14,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ConvertToInt16 implements Instruction {
-    final Integer OpCode = 0x68;
-    final String AssemblyFormat = "conv.i2";
+    public final static Integer OpCode = 0x68;
+    public final static String AssemblyFormat = "conv.i2";
 
 
     public Integer getOpCode(){
-        return this.OpCode;
+        return ConvertToInt16.OpCode;
     }
     public String getAssemblyFormat() {
-        return this.AssemblyFormat;
+        return ConvertToInt16.AssemblyFormat;
     }
 
     public List<Class> getThrownExceptions(){
