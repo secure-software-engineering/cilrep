@@ -13,7 +13,7 @@ import de.upb.cs.swt.cilrep.exceptions.MissingMethodException;
 import de.upb.cs.swt.cilrep.exceptions.SecurityException;
 import de.upb.cs.swt.cilrep.instructions.Instruction;
 
-import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class Call implements Instruction {
@@ -30,10 +30,9 @@ public class Call implements Instruction {
     }
 
     public List<Class> getThrownExceptions(){
-        ArrayList<Class> exceptions =  new ArrayList<>();
-        exceptions.add(SecurityException.class);
-        exceptions.add(MethodAccessException.class);
-        exceptions.add(MissingMethodException.class);
-        return exceptions;
+        return Arrays.asList(
+                SecurityException.class,
+                MethodAccessException.class,
+                MissingMethodException.class);
     }
 }
