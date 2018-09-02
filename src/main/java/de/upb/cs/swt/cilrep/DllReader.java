@@ -13,11 +13,13 @@ import java.util.List;
 import java.util.Scanner;
 
 public class DllReader {
+    private static final String    HEXES    = "0123456789ABCDEF";
     public Project readProject(Path path) {
         try {
 
             // Load as binary:
             byte[] bytes = Files.readAllBytes(path);
+            String[] hex = getHex(bytes);
             String asText = new String(bytes, StandardCharsets.ISO_8859_1);
 
             // Load as text, with some Charset:
@@ -29,6 +31,15 @@ public class DllReader {
         }
 
         return new Project();
+    }
+
+    String[] getHex(byte[] raw) {
+        final String[] hex = new String[raw.length];
+        for (int i = 0; i < raw.length; i++){
+            hex[i] = (HEXES.charAt((raw[i] & 0xF0) >> 4))
+                    + "" + (HEXES.charAt((raw[i] & 0x0F)));
+        }
+        return hex;
     }
 
     public static void main(String[] args){
