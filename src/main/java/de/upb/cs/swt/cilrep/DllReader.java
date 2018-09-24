@@ -20,6 +20,19 @@ public class DllReader {
             // Load as binary:
             byte[] bytes = Files.readAllBytes(path);
             String[] hex = getHex(bytes);
+            int headerIndex = 0;
+
+            /*for (int i = 0; i < hex.length; i++){
+                if (hex[i].equals("42")){
+                    if (hex[i - 1].equals("4A")
+                        && hex[i - 2].equals("53")
+                        && hex[i - 3].equals("42")){
+                        headerIndex = i;
+                    }
+                }
+            }*/
+
+
             String asText = new String(bytes, StandardCharsets.ISO_8859_1);
 
             // Load as text, with some Charset:
@@ -42,7 +55,7 @@ public class DllReader {
         return hex;
     }
 
-    public static void main(String[] args){
+    void extractOpCodeAndClassNames(){
         Path myDirectoryPath = Paths.get("C:\\Users\\nij\\Desktop\\CIL Work\\cilrep\\src\\main\\java\\de\\upb\\cs\\swt\\cilrep\\instructions\\BaseInstructions");
         File dir = myDirectoryPath.toFile();
         File[] directoryListing = dir.listFiles();
@@ -85,6 +98,10 @@ public class DllReader {
 
             }
         }
+    }
+
+    public static void main(String[] args){
+
     }
 
 }
