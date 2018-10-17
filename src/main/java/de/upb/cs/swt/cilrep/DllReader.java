@@ -1,5 +1,9 @@
 package de.upb.cs.swt.cilrep;
 
+import de.upb.cs.swt.cilrep.filecomponents.MetadataLogicalFormat.MethodDefTable;
+import de.upb.cs.swt.cilrep.filecomponents.MetadataLogicalFormat.TypeDefTable;
+import de.upb.cs.swt.cilrep.filecomponents.MetadataPhysicalLayout.FileHeaders.MetadataRoot;
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -19,6 +23,7 @@ public class DllReader {
 
             // Load as binary:
             byte[] bytes = Files.readAllBytes(path);
+
             String[] hex = getHex(bytes);
             int headerIndex = 0;
 
@@ -35,9 +40,8 @@ public class DllReader {
 
             String asText = new String(bytes, StandardCharsets.ISO_8859_1);
 
-            // Load as text, with some Charset:
-            List<String> lines = Files.readAllLines(path, StandardCharsets.ISO_8859_1);
-            lines = lines;
+            MetadataRoot mdRoot = new MetadataRoot();
+            mdRoot.populateData(272560, bytes);
         }
         catch (IOException ioException){
 

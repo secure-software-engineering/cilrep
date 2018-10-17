@@ -1,6 +1,7 @@
 package de.upb.cs.swt.cilrep.filecomponents.MetadataLogicalFormat;
 
 
+import de.upb.cs.swt.cilrep.common.Constants;
 import de.upb.cs.swt.cilrep.common.HelperFunctions;
 import de.upb.cs.swt.cilrep.filecomponents.MetadataPhysicalLayout.FileHeaders.TildeStream;
 
@@ -8,26 +9,25 @@ import java.util.ArrayList;
 
 public class MethodDefTable extends TableBase<MethodDefTable.MethodDefTableRow> {
 
-    public static final String TABLENAME = "MethodDef";
-    public static final Integer TABLEINDEX = 0x06;
-
     public MethodDefTable(){
-        this.tableName = MethodDefTable.TABLENAME;
-        this.tableIndex = MethodDefTable.TABLEINDEX;
+        this.tableName = Constants.TableNames.METHODDEFTABLE;
+        this.tableIndex = Constants.TableIndexes.METHODDEFTABLE;
+
+        Integer allIndexSize = TildeStream.HeapSizeParameters
+                + TildeStream.HeapSizeString + TildeStream.HeapSizeBlob;
+        this.lengthOfARowInBytes = 8 + allIndexSize;
     }
 
 
-    public void fillTable(byte[] _stream, Integer _numberOfRows, Integer _startIndex,
-                          Integer _widthOfIndexes){
+    public void fillTable(byte[] _stream, Integer _numberOfRows, Integer _startIndex){
 
         this.rows = new ArrayList<>();
         Integer rowStartIndex = _startIndex;
-        Integer allIndexSize = TildeStream.HeapSizeParameters
-                + TildeStream.HeapSizeString + TildeStream.HeapSizeBlob;
+
         for (int i = 0; i < _numberOfRows; i++){
 
             MethodDefTableRow row = new MethodDefTableRow();
-            row.RVA = HelperFunctions.readNBytesIntoByteArr(4, rowStartIndex, _stream);;
+            row.RVA = HelperFunctions.readNBytesIntoLong(4, rowStartIndex, _stream);;
             row.ImplFlags = HelperFunctions.readNBytesIntoInt32(2, rowStartIndex + 4, _stream);
             row.Flags = HelperFunctions.readNBytesIntoInt32(2, rowStartIndex + 6, _stream);
             row.NameIndex = HelperFunctions.readNBytesIntoInt32(TildeStream.HeapSizeString, rowStartIndex + 8, _stream);
@@ -38,18 +38,20 @@ public class MethodDefTable extends TableBase<MethodDefTable.MethodDefTableRow> 
 
             this.rows.add(row);
 
-            rowStartIndex += (8 + allIndexSize);
+            rowStartIndex += this.lengthOfARowInBytes;
         }
     }
 
 
-    class MethodDefTableRow{
-        byte[] RVA;
+    public static class MethodDefTableRow extends TableRowBase{
+        //byte[] RVA;
+        long RVA;
         Integer ImplFlags;
         Integer Flags;
         Integer NameIndex; // index into String heap
         Integer Signature; // index into blob heap
         Integer ParamList; // index into param table
+
     }
 
 

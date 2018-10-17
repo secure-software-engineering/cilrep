@@ -9,4 +9,6 @@ public class StreamHeader {
 
     /* offset 8, size variable */
     public String Name;
+
+    public Integer StartingIndexInFile;
 }

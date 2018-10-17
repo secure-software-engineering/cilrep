@@ -7,7 +7,7 @@ public class HelperFunctions {
         Integer readValue = 0;
         int endIndex = _startIndex + _n - 1;
         for (int i = endIndex; i >= _startIndex; i--){
-            readValue = (readValue << 8) + _stream[i];
+            readValue = (readValue << 8) + (_stream[i] & 0xff);
         }
 
         return readValue;
@@ -17,7 +17,7 @@ public class HelperFunctions {
         long readValue = 0;
         int endIndex = _startIndex + _n - 1;
         for (int i = endIndex; i >= _startIndex; i--){
-            readValue = (readValue << 8) + _stream[i];
+            readValue = (readValue << 8) + (_stream[i] & 0xff);
         }
 
         return readValue;
@@ -31,6 +31,14 @@ public class HelperFunctions {
         }
 
         return readBytes;
+    }
+
+    public static String readNBytesToStrSequential(int _n, int _startIndex, byte[] _stream){
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < _n; i++){
+            sb.append((char)_stream[_startIndex + i]);
+        }
+        return sb.toString();
     }
 
     public static Integer getNumberOfSetBits(long _number){

@@ -6,12 +6,13 @@ public abstract class TableBase<T> implements LogicalFormatTable {
     public String tableName;
     public Integer tableIndex;
     public long numberOfRows;
+    public Integer lengthOfARowInBytes;
 
     public String getTableName(){
         return tableName;
     }
     public Integer getTableIndex() { return tableIndex; }
 
-    ArrayList<T> rows;
-    ArrayList<String> columns;
+    public ArrayList<T> rows;
+    public ArrayList<String> columns;
 }
