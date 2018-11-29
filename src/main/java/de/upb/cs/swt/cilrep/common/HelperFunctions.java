@@ -1,5 +1,9 @@
 package de.upb.cs.swt.cilrep.common;
 
+import de.upb.cs.swt.cilrep.filecomponents.Headers.SectionHeaders;
+import de.upb.cs.swt.cilrep.instructions.BaseInstructions.Add;
+
+import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 
 public class HelperFunctions {
@@ -50,7 +54,18 @@ public class HelperFunctions {
         return counter;
     }
 
+    public static Integer getIntValueOfBitRangeInByte(int start, int end, byte _byte){
+        Integer mask = (int) ((Math.pow(2,end+1)-1)- (Math.pow(2,start+1)-1));
+        Integer extract = _byte & mask;
+        return extract;
+    }
+
     public static boolean checkIfCertainBitIsSet(long _bitVector, Integer _bitNumber){
         return (_bitVector & (1 << _bitNumber)) > 0;
+    }
+
+    public static Integer getFileOffsetFrmRVATextStream(Integer rva){
+        SectionHeaders.TextSection ts = SectionHeaders.TextSection.getInstance();
+        return ts.getFileOffset(rva);
     }
 }

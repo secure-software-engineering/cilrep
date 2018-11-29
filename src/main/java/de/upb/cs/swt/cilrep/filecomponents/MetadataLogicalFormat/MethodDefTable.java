@@ -27,7 +27,8 @@ public class MethodDefTable extends TableBase<MethodDefTable.MethodDefTableRow> 
         for (int i = 0; i < _numberOfRows; i++){
 
             MethodDefTableRow row = new MethodDefTableRow();
-            row.RVA = HelperFunctions.readNBytesIntoLong(4, rowStartIndex, _stream);;
+            row.RVA = HelperFunctions.readNBytesIntoInt32(4, rowStartIndex, _stream);
+            row.FileOffset = HelperFunctions.getFileOffsetFrmRVATextStream(row.RVA);
             row.ImplFlags = HelperFunctions.readNBytesIntoInt32(2, rowStartIndex + 4, _stream);
             row.Flags = HelperFunctions.readNBytesIntoInt32(2, rowStartIndex + 6, _stream);
             row.NameIndex = HelperFunctions.readNBytesIntoInt32(TildeStream.HeapSizeString, rowStartIndex + 8, _stream);
@@ -45,12 +46,13 @@ public class MethodDefTable extends TableBase<MethodDefTable.MethodDefTableRow> 
 
     public static class MethodDefTableRow extends TableRowBase{
         //byte[] RVA;
-        long RVA;
-        Integer ImplFlags;
-        Integer Flags;
-        Integer NameIndex; // index into String heap
-        Integer Signature; // index into blob heap
-        Integer ParamList; // index into param table
+        public Integer RVA;
+        public Integer FileOffset;
+        public Integer ImplFlags;
+        public Integer Flags;
+        public Integer NameIndex; // index into String heap
+        public Integer Signature; // index into blob heap
+        public Integer ParamList; // index into param table
 
     }
 

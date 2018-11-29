@@ -14,7 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class And implements Instruction {
-    public final static Integer OpCode = 0xFE00;
+    public final static Integer OpCode = 0x5F;
     public final static String AssemblyFormat = "and";
 
     public Integer getOpCode(){

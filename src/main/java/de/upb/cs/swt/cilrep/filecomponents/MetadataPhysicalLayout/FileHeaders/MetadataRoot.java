@@ -118,4 +118,28 @@ public class MetadataRoot {
             s.populateData(_stream);
         }
     }
+
+    public TildeStream getTildeStream(){
+        Stream stream = this.Streams.stream().filter(o -> o.streamHeader.Name.equals(Constants.TILDESTREAMNAME))
+                .findAny()
+                .orElse(null);
+
+        if (stream instanceof TildeStream){
+            return (TildeStream) stream;
+        }
+        else
+            return null;
+    }
+
+    public StringsHeap getStringsHeap(){
+        Stream stream = this.Streams.stream().filter(o -> o.streamHeader.Name.equals(Constants.STRINGSSTREAMNAME))
+                .findAny()
+                .orElse(null);
+
+        if (stream instanceof StringsHeap){
+            return (StringsHeap) stream;
+        }
+        else
+            return null;
+    }
 }

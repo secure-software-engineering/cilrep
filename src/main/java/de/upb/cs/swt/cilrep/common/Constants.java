@@ -3,7 +3,7 @@ package de.upb.cs.swt.cilrep.common;
 public class Constants {
 
     public static final String TILDESTREAMNAME = "#~";
-    public static final String STRINGSSTREAMNAME = "#String";
+    public static final String STRINGSSTREAMNAME = "#Strings";
     public static final String USSTREAMNAME = "#US";
     public static final String BLOBSTREAMNAME = "#Blob";
 

@@ -5,7 +5,6 @@ import de.upb.cs.swt.cilrep.common.HelperFunctions;
 import de.upb.cs.swt.cilrep.filecomponents.MetadataLogicalFormat.*;
 
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 public class TildeStream extends Stream {
@@ -40,7 +39,7 @@ public class TildeStream extends Stream {
     public Map<Integer, Integer> tableIndexesAndRowNumbers;
 
     /* offset 24 + 4*n, size variable */
-    public List<LogicalFormatTable> Tables = null;
+    public Map<Integer,LogicalFormatTable> tablesMap = null;
 
     public void populateData(byte[] _stream){
         Integer startIndex = this.streamHeader.StartingIndexInFile;
@@ -93,6 +92,8 @@ public class TildeStream extends Stream {
     }
 
     void fillTables(Integer _startIndex, byte[] _stream){
+        tablesMap = new HashMap<>();
+
         int individualTableStartIndex = _startIndex;
 
         if (tableIndexesAndRowNumbers.containsKey(Constants.TableIndexes.MODULETABLE)){
@@ -100,6 +101,7 @@ public class TildeStream extends Stream {
             Integer moduleTableSize = moduleTable.lengthOfARowInBytes
                     * tableIndexesAndRowNumbers.get(Constants.TableIndexes.MODULETABLE);
 
+            tablesMap.put(Constants.TableIndexes.MODULETABLE, moduleTable);
             _startIndex += moduleTableSize;
         }
 
@@ -108,6 +110,7 @@ public class TildeStream extends Stream {
             Integer typeRefTableSize = typeRefTable.lengthOfARowInBytes
                     * tableIndexesAndRowNumbers.get(Constants.TableIndexes.TYPEREFTABLE);
 
+            tablesMap.put(Constants.TableIndexes.TYPEREFTABLE, typeRefTable);
             _startIndex += typeRefTableSize;
         }
 
@@ -116,6 +119,8 @@ public class TildeStream extends Stream {
             Integer typeDefTableSize = typeDefTable.lengthOfARowInBytes
                     * tableIndexesAndRowNumbers.get(Constants.TableIndexes.TYPEDEFTABLE);
 
+            tablesMap.put(Constants.TableIndexes.TYPEDEFTABLE, typeDefTable);
+
             _startIndex += typeDefTableSize;
         }
 
@@ -123,6 +128,8 @@ public class TildeStream extends Stream {
             FieldTable fieldTable = new FieldTable();
             Integer fieldTableSize = fieldTable.lengthOfARowInBytes
                     * tableIndexesAndRowNumbers.get(Constants.TableIndexes.FIELDTABLE);
+
+            tablesMap.put(Constants.TableIndexes.FIELDTABLE, fieldTable);
 
             _startIndex += fieldTableSize;
         }
@@ -135,6 +142,7 @@ public class TildeStream extends Stream {
 
             methodDefTable.fillTable(_stream, numberOfRowsInTable, _startIndex);
 
+            tablesMap.put(Constants.TableIndexes.METHODDEFTABLE, methodDefTable);
             _startIndex += methodDefTableSize;
         }
 

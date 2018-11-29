@@ -3,7 +3,7 @@ package de.upb.cs.swt.cilrep.filecomponents.MetadataPhysicalLayout.FileHeaders;
 import java.util.HashMap;
 
 public class StringsHeap extends Stream {
-    HashMap<Integer, String> strings;
+    public HashMap<Integer, String> strings;
     public void populateData(byte[] _stream){
         strings = new HashMap<>();
         Integer startIndex = this.streamHeader.StartingIndexInFile;
