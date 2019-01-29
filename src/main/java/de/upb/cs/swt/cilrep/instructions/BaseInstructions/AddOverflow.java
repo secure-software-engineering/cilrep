@@ -14,7 +14,7 @@ import de.upb.cs.swt.cilrep.instructions.Instruction;
 import java.util.ArrayList;
 import java.util.List;
 
-public class AddOverflow implements Instruction {
+public class AddOverflow extends Instruction {
     public final static Integer OpCode = 0xD6;
     public final static String AssemblyFormat = "add.ovf";
 

@@ -15,7 +15,7 @@ import de.upb.cs.swt.cilrep.instructions.Instruction;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Duplicate implements Instruction {
+public class Duplicate extends Instruction {
     public final static Integer OpCode = 0x25;
     public final static String AssemblyFormat = "Dup";
 

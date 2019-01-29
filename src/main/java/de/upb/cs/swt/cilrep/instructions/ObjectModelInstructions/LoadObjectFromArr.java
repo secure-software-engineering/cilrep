@@ -17,7 +17,7 @@ import de.upb.cs.swt.cilrep.instructions.Instruction;
 import java.util.ArrayList;
 import java.util.List;
 
-public class LoadObjectFromArr implements Instruction {
+public class LoadObjectFromArr extends Instruction {
     public final static Integer OpCode = 0x9A;
     public final static String AssemblyFormat = "ldelem.ref";
 

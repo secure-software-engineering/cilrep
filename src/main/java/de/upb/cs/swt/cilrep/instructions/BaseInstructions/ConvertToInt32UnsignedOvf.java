@@ -15,7 +15,7 @@ import de.upb.cs.swt.cilrep.instructions.Instruction;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ConvertToInt32UnsignedOvf implements Instruction {
+public class ConvertToInt32UnsignedOvf extends Instruction {
     public final static Integer OpCode = 0xB8;
     public final static String AssemblyFormat = "conv.ovf.u4";
 

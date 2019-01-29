@@ -16,7 +16,7 @@ import de.upb.cs.swt.cilrep.instructions.Instruction;
 import java.util.ArrayList;
 import java.util.List;
 
-public class LoadInt16FromArr implements Instruction {
+public class LoadInt16FromArr extends Instruction {
     public final static Integer OpCode = 0x92;
     public final static String AssemblyFormat = "ldelem.i2";
 

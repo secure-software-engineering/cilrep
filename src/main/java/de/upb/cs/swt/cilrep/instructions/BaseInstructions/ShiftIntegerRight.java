@@ -13,7 +13,7 @@ import de.upb.cs.swt.cilrep.instructions.Instruction;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ShiftIntegerRight implements Instruction {
+public class ShiftIntegerRight extends Instruction {
     public final static Integer OpCode = 0x63;
     public final static  String AssemblyFormat = "Shr";
 

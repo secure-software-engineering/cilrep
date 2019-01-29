@@ -13,7 +13,7 @@ import de.upb.cs.swt.cilrep.instructions.Instruction;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ConvertToInt16 implements Instruction {
+public class ConvertToInt16 extends Instruction {
     public final static Integer OpCode = 0x68;
     public final static String AssemblyFormat = "conv.i2";
 

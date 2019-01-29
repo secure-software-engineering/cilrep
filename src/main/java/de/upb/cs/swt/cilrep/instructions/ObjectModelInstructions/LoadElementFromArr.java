@@ -11,11 +11,13 @@ package de.upb.cs.swt.cilrep.instructions.ObjectModelInstructions;
 import de.upb.cs.swt.cilrep.exceptions.IndexOutOfRangeException;
 import de.upb.cs.swt.cilrep.exceptions.NullReferenceException;
 import de.upb.cs.swt.cilrep.instructions.Instruction;
+import de.upb.cs.swt.cilrep.instructions.ParameterTypes.Token;
+import de.upb.cs.swt.cilrep.instructions.ParameterTypes.TypesBase;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class LoadElementFromArr implements Instruction {
+public class LoadElementFromArr extends Instruction {
     public final static Integer OpCode = 0xA3;
     public final static String AssemblyFormat = "ldelem";
 
@@ -34,5 +36,12 @@ public class LoadElementFromArr implements Instruction {
         exceptions.add(IndexOutOfRangeException.class);
         exceptions.add(NullReferenceException.class);
         return exceptions;
+    }
+
+    public TypesBase getParameter(){
+        if (this.parameter == null){
+            this.parameter = new Token();
+        }
+        return this.parameter;
     }
 }

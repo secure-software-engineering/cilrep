@@ -9,11 +9,13 @@
 package de.upb.cs.swt.cilrep.instructions.BaseInstructions;
 
 import de.upb.cs.swt.cilrep.instructions.Instruction;
+import de.upb.cs.swt.cilrep.instructions.ParameterTypes.TypesBase;
+import de.upb.cs.swt.cilrep.instructions.ParameterTypes.UnsignedInt8;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class LoadArgNumShortOnStack implements Instruction {
+public class LoadArgNumShortOnStack extends Instruction {
     public final static Integer OpCode = 0x0E;
     public final static  String AssemblyFormat = "darg.s";
 
@@ -30,4 +32,12 @@ public class LoadArgNumShortOnStack implements Instruction {
         List<Class> exceptions = new ArrayList<Class>();
         return exceptions;
     }
+
+    public TypesBase getParameter(){
+        if (this.parameter == null){
+            this.parameter = new UnsignedInt8();
+        }
+        return this.parameter;
+    }
+
 }

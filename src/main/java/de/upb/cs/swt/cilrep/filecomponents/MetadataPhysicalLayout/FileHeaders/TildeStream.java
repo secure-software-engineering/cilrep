@@ -7,7 +7,20 @@ import de.upb.cs.swt.cilrep.filecomponents.MetadataLogicalFormat.*;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * <h1>Tilde Stream</h1>
+ * <p>
+ *     This class computes and stores information about
+ *     TildeStream in FileHeaders sections of the given file.
+ * </p>
+ *
+ * @author  Numan Ijaz
+ * @version 1.0
+ * @since   2018-11-30
+ */
+
 public class TildeStream extends Stream {
+
     public static Integer HeapSizeString = 2;
     public static Integer HeapSizeGUID = 2;
     public static Integer HeapSizeBlob = 2;
@@ -41,6 +54,22 @@ public class TildeStream extends Stream {
     /* offset 24 + 4*n, size variable */
     public Map<Integer,LogicalFormatTable> tablesMap = null;
 
+    /**
+     * The static variable tablesIndexSizes contains information
+     * about the index size for each table. Index size depends
+     * on the number of rows present in a table. If number of rows
+     * are more than 64K then size is 4 bytes otherwise it is 2 bytes.
+     */
+    public static Map<Integer, Integer> tablesIndexSizesInBytes = null;
+
+    /**
+     * This method is responsible for populating the data
+     * related to Tilde Stream. Initially it populates
+     * the information about the stream and then the tables in
+     * Tilde Stream are populated using fillTables method.
+     *
+     * @param _stream
+     */
     public void populateData(byte[] _stream){
         Integer startIndex = this.streamHeader.StartingIndexInFile;
         this.Reserved1 = HelperFunctions.readNBytesIntoInt32(4, startIndex, _stream);
@@ -91,6 +120,27 @@ public class TildeStream extends Stream {
         }
     }
 
+    /**
+     * This method will populate index sizes for each
+     * table into the static variable
+     * TildeStream.tablesIndexSizesInBytes
+     */
+    void populateTableIndexSizes(){
+        TildeStream.tablesIndexSizesInBytes = new HashMap<>();
+
+        for (Map.Entry<Integer, Integer> entry: this.tableIndexesAndRowNumbers.entrySet()){
+            Integer size = entry.getValue() > 64000 ? 4 : 2;
+            TildeStream.tablesIndexSizesInBytes.put(entry.getKey(), size);
+        }
+    }
+
+    /**
+     * This method reads the data of all the logical tables
+     * in file and fills the tables in memory.
+     *
+     * @param _startIndex
+     * @param _stream
+     */
     void fillTables(Integer _startIndex, byte[] _stream){
         tablesMap = new HashMap<>();
 

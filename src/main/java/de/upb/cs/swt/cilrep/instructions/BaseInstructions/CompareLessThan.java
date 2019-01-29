@@ -13,7 +13,7 @@ import de.upb.cs.swt.cilrep.instructions.Instruction;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CompareLessThan implements Instruction {
+public class CompareLessThan extends Instruction {
     public final static Integer OpCode = 0xFE04;
     public final static String AssemblyFormat = "Clt";
 

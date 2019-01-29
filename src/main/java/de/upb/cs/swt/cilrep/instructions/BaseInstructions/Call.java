@@ -12,11 +12,13 @@ import de.upb.cs.swt.cilrep.exceptions.MethodAccessException;
 import de.upb.cs.swt.cilrep.exceptions.MissingMethodException;
 import de.upb.cs.swt.cilrep.exceptions.SecurityException;
 import de.upb.cs.swt.cilrep.instructions.Instruction;
+import de.upb.cs.swt.cilrep.instructions.ParameterTypes.MemberRef;
+import de.upb.cs.swt.cilrep.instructions.ParameterTypes.TypesBase;
 
 import java.util.Arrays;
 import java.util.List;
 
-public class Call implements Instruction {
+public class Call extends Instruction {
     public final static Integer OpCode = 0x28;
     public final static String AssemblyFormat = "call";
 
@@ -34,5 +36,12 @@ public class Call implements Instruction {
                 SecurityException.class,
                 MethodAccessException.class,
                 MissingMethodException.class);
+    }
+
+    public TypesBase getParameter(){
+        if (this.parameter == null){
+            this.parameter = new MemberRef();
+        }
+        return this.parameter;
     }
 }

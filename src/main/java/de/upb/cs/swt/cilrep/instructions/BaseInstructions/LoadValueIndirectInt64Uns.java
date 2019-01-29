@@ -15,7 +15,7 @@ import de.upb.cs.swt.cilrep.instructions.Instruction;
 import java.util.ArrayList;
 import java.util.List;
 
-public class LoadValueIndirectInt64Uns implements Instruction {
+public class LoadValueIndirectInt64Uns extends Instruction {
     public final static Integer OpCode = 0x4C;
     public final static  String AssemblyFormat = "ldind.u8";
 

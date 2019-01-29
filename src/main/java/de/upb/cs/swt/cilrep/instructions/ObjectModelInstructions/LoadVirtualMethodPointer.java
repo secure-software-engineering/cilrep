@@ -11,11 +11,13 @@ package de.upb.cs.swt.cilrep.instructions.ObjectModelInstructions;
 import de.upb.cs.swt.cilrep.exceptions.MethodAccessException;
 import de.upb.cs.swt.cilrep.exceptions.NullReferenceException;
 import de.upb.cs.swt.cilrep.instructions.Instruction;
+import de.upb.cs.swt.cilrep.instructions.ParameterTypes.MemberRef;
+import de.upb.cs.swt.cilrep.instructions.ParameterTypes.TypesBase;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class LoadVirtualMethodPointer implements Instruction {
+public class LoadVirtualMethodPointer extends Instruction {
     public final static Integer OpCode = 0xFE07;
     public final static String AssemblyFormat = "ldvirtftn";
 
@@ -33,5 +35,12 @@ public class LoadVirtualMethodPointer implements Instruction {
         exceptions.add(MethodAccessException.class);
         exceptions.add(NullReferenceException.class);
         return exceptions;
+    }
+
+    public TypesBase getParameter(){
+        if (this.parameter == null){
+            this.parameter = new MemberRef();
+        }
+        return this.parameter;
     }
 }

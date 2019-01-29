@@ -3,20 +3,29 @@ package de.upb.cs.swt.cilrep.assemblycomponents;
 import de.upb.cs.swt.cilrep.common.HelperFunctions;
 import de.upb.cs.swt.cilrep.filecomponents.MetadataLogicalFormat.MethodDefTable;
 import de.upb.cs.swt.cilrep.instructions.Instruction;
+import de.upb.cs.swt.cilrep.instructions.InstructionsHelper;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Method {
     public String Name;
     public MethodHeader header;
     public List<Instruction> instructions;
+    MethodDefTable.MethodDefTableRow row;
 
     public void populate(MethodDefTable.MethodDefTableRow row, byte[] _bytes){
+        this.row = row;
         Integer startIndex = row.FileOffset;
-        this.populateHeader(startIndex, _bytes);
+        if (startIndex <= 0){
+            return;
+        }
+
+        Integer instructionsStartIndex = this.populateHeader(startIndex, _bytes);
+        this.populateInstructions(instructionsStartIndex, _bytes);
     }
 
-    void populateHeader(int _startIndex, byte[] _bytes){
+    Integer populateHeader(int _startIndex, byte[] _bytes){
 
         /* if method header is tiny or fat */
         byte firstByte = _bytes[_startIndex];
@@ -29,21 +38,19 @@ public class Method {
             this.fillTinyHeader(firstByte);
         }
 
-        _startIndex = isHeaderTiny()? _startIndex + 1: _startIndex + 16;
-
-        this.populateInstructions(_startIndex, _bytes);
-
+        _startIndex = isHeaderTiny()? _startIndex + 1: _startIndex + 12;
+        return _startIndex;
     }
 
     void fillTinyHeader(byte headerByte){
         MethodHeaderTiny mht = (MethodHeaderTiny) this.header;
-        mht.codeSizeInBytes = HelperFunctions.getIntValueOfBitRangeInByte(2, 7, headerByte);
+        mht.codeSizeInBytes = HelperFunctions.getShiftedValOfByte(2, headerByte);
     }
 
     void fillFatHeader(Integer _startIndex, byte[] _bytes){
         MethodHeaderFat mhf = (MethodHeaderFat) this.header;
 
-        mhf.sizeOfHeader = HelperFunctions.getIntValueOfBitRangeInByte(4, 7,
+        mhf.sizeOfHeader = HelperFunctions.getShiftedValOfByte(4,
                 _bytes[_startIndex + 1]);
 
         mhf.maxNumberOfItemsOnStack = HelperFunctions.readNBytesIntoInt32(2,
@@ -59,8 +66,39 @@ public class Method {
     }
 
     void populateInstructions(Integer _startIndex, byte[] _bytes){
+        instructions = new ArrayList<>();
         Integer numOfBytesRead = 0;
-        while (numOfBytesRead < this.header.codeSizeInBytes){
+        Integer codeSizeInBytes;
+        if (this.header instanceof MethodHeaderTiny)
+            codeSizeInBytes = ((MethodHeaderTiny) this.header).codeSizeInBytes;
+        else
+            codeSizeInBytes = ((MethodHeaderFat) this.header).codeSizeInBytes;
+
+        while (numOfBytesRead < codeSizeInBytes){
+            if (_startIndex == 1092
+                && row.RVA == 8752
+            ){ // for debugging scenarios
+                _startIndex = _startIndex;
+            }
+            if (numOfBytesRead > 50){
+                _startIndex = _startIndex;
+            }
+            Instruction instruction = InstructionsHelper
+                    .readInstruction(_startIndex, _bytes);
+            instructions.add(instruction);
+
+            Integer instructionSize = instruction.getOpCodeByteSize();
+
+            if (instruction.getParameter() != null){
+                instructionSize += instruction.getParameter().getSizeInBytes();
+            }
+
+            // start index of the next instruction (if any) equals
+            // start index plus
+            // size of the instruction
+            _startIndex += instructionSize;
+            numOfBytesRead += instructionSize;
+
 
         }
     }

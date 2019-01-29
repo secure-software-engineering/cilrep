@@ -13,7 +13,7 @@ import de.upb.cs.swt.cilrep.instructions.Instruction;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ConvertToInt32 implements Instruction {
+public class ConvertToInt32 extends Instruction {
     public final static Integer OpCode = 0x69;
     public final static String AssemblyFormat = "conv.i4";
 

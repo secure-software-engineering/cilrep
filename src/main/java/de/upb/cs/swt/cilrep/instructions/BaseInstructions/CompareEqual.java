@@ -13,7 +13,7 @@ import de.upb.cs.swt.cilrep.instructions.Instruction;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CompareEqual implements Instruction {
+public class CompareEqual extends Instruction {
     public final static Integer OpCode = 0xFE01;
     public final static String AssemblyFormat = "Ceq";
 

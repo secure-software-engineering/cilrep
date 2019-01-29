@@ -13,7 +13,7 @@ import de.upb.cs.swt.cilrep.instructions.Instruction;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CompareGreaterThan implements Instruction {
+public class CompareGreaterThan extends Instruction {
     public final static Integer OpCode = 0xFE02;
     public final static String AssemblyFormat = "Cgt";
 

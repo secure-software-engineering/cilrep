@@ -13,7 +13,7 @@ import de.upb.cs.swt.cilrep.instructions.Instruction;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Or implements Instruction {
+public class Or extends Instruction {
     public final static Integer OpCode = 0x60;
     public final static  String AssemblyFormat = "Or";
 

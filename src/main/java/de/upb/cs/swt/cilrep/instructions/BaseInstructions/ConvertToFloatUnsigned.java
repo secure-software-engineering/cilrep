@@ -13,7 +13,7 @@ import de.upb.cs.swt.cilrep.instructions.Instruction;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ConvertToFloatUnsigned implements Instruction {
+public class ConvertToFloatUnsigned extends Instruction {
     public final static Integer OpCode = 0x76;
     public final static String AssemblyFormat = "conv.r.un";
 

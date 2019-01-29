@@ -14,7 +14,7 @@ import de.upb.cs.swt.cilrep.instructions.Instruction;
 import java.util.ArrayList;
 import java.util.List;
 
-public class InitializeMemBlockWithVal implements Instruction {
+public class InitializeMemBlockWithVal extends Instruction {
     public final static Integer OpCode = 0xFE18;
     public final static String AssemblyFormat = "initblk";
 

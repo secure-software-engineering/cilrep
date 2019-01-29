@@ -9,11 +9,13 @@
 package de.upb.cs.swt.cilrep.instructions.BaseInstructions;
 
 import de.upb.cs.swt.cilrep.instructions.Instruction;
+import de.upb.cs.swt.cilrep.instructions.ParameterTypes.Int32;
+import de.upb.cs.swt.cilrep.instructions.ParameterTypes.TypesBase;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class LoadConstantInt32 implements Instruction {
+public class LoadConstantInt32 extends Instruction {
     public final static Integer OpCode = 0x20;
     public final static  String AssemblyFormat = "ldc.i4";
 
@@ -33,5 +35,12 @@ public class LoadConstantInt32 implements Instruction {
     public List<Class> getThrownExceptions(){
         List<Class> exceptions = new ArrayList<Class>();
         return exceptions;
+    }
+
+    public TypesBase getParameter(){
+        if (this.parameter == null){
+            this.parameter = new Int32();
+        }
+        return this.parameter;
     }
 }

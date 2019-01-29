@@ -14,7 +14,7 @@ import de.upb.cs.swt.cilrep.instructions.Instruction;
 import java.util.ArrayList;
 import java.util.List;
 
-public class LoadConstantMinusOneAlias implements Instruction {
+public class LoadConstantMinusOneAlias extends Instruction {
     public final static Integer OpCode = 0x15;
     public final static  String AssemblyFormat = "ldc.i4.M1";
 

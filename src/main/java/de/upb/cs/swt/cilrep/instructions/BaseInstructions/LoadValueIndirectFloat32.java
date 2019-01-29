@@ -14,7 +14,7 @@ import de.upb.cs.swt.cilrep.instructions.Instruction;
 import java.util.ArrayList;
 import java.util.List;
 
-public class LoadValueIndirectFloat32 implements Instruction {
+public class LoadValueIndirectFloat32 extends Instruction {
     public final static Integer OpCode = 0x4E;
     public final static  String AssemblyFormat = "ldind.r4";
 

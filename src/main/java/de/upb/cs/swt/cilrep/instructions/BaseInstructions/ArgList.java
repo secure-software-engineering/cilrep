@@ -13,7 +13,7 @@ import de.upb.cs.swt.cilrep.instructions.Instruction;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ArgList implements Instruction {
+public class ArgList extends Instruction {
     public final static Integer OpCode = 0xFE00;
     public final static String AssemblyFormat = "arglist";
 

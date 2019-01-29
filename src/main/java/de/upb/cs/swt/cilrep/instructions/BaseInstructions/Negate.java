@@ -14,7 +14,7 @@ import de.upb.cs.swt.cilrep.instructions.Instruction;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Negate implements Instruction {
+public class Negate extends Instruction {
     public final static Integer OpCode = 0x65;
     public final static  String AssemblyFormat = "Neg";
 

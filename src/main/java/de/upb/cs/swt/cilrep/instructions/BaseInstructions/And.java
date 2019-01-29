@@ -13,7 +13,7 @@ import de.upb.cs.swt.cilrep.instructions.Instruction;
 import java.util.ArrayList;
 import java.util.List;
 
-public class And implements Instruction {
+public class And extends Instruction {
     public final static Integer OpCode = 0x5F;
     public final static String AssemblyFormat = "and";
 

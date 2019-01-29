@@ -13,7 +13,7 @@ import de.upb.cs.swt.cilrep.instructions.Instruction;
 import java.util.ArrayList;
 import java.util.List;
 
-public class NoOperation implements Instruction {
+public class NoOperation extends Instruction {
     public final static Integer OpCode = 0x00;
     public final static  String AssemblyFormat = "Nop";
 

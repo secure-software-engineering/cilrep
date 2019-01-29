@@ -16,7 +16,7 @@ import de.upb.cs.swt.cilrep.instructions.Instruction;
 import java.util.ArrayList;
 import java.util.List;
 
-public class LoadLocalVar3 implements Instruction {
+public class LoadLocalVar3 extends Instruction {
     public final static Integer OpCode = 0x09;
     public final static  String AssemblyFormat = "ldloc.3";
 

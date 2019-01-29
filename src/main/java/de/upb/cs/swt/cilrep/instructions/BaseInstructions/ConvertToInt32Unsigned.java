@@ -13,7 +13,7 @@ import de.upb.cs.swt.cilrep.instructions.Instruction;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ConvertToInt32Unsigned implements Instruction {
+public class ConvertToInt32Unsigned extends Instruction {
     public final static Integer OpCode = 0x6D;
     public final static String AssemblyFormat = "conv.u4";
 

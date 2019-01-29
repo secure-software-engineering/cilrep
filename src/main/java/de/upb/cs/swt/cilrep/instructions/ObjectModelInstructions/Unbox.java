@@ -12,11 +12,14 @@ import de.upb.cs.swt.cilrep.exceptions.InvalidCastException;
 import de.upb.cs.swt.cilrep.exceptions.NullReferenceException;
 import de.upb.cs.swt.cilrep.exceptions.TypeLoadException;
 import de.upb.cs.swt.cilrep.instructions.Instruction;
+import de.upb.cs.swt.cilrep.instructions.ParameterTypes.MemberRef;
+import de.upb.cs.swt.cilrep.instructions.ParameterTypes.TypesBase;
+import de.upb.cs.swt.cilrep.instructions.ParameterTypes.ValueTypeParam;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class Unbox implements Instruction {
+public class Unbox extends Instruction {
     public final static Integer OpCode = 0x79;
     public final static String AssemblyFormat = "unbox";
 
@@ -35,5 +38,12 @@ public class Unbox implements Instruction {
         exceptions.add(NullReferenceException.class);
         exceptions.add(TypeLoadException.class);
         return exceptions;
+    }
+
+    public TypesBase getParameter(){
+        if (this.parameter == null){
+            this.parameter = new ValueTypeParam();
+        }
+        return this.parameter;
     }
 }

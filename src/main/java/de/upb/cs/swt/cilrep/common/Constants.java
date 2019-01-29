@@ -2,10 +2,16 @@ package de.upb.cs.swt.cilrep.common;
 
 public class Constants {
 
+    // stream names
     public static final String TILDESTREAMNAME = "#~";
     public static final String STRINGSSTREAMNAME = "#Strings";
     public static final String USSTREAMNAME = "#US";
     public static final String BLOBSTREAMNAME = "#Blob";
+
+    // instructions
+    public static String OpCodeFieldName = "OpCode";
+    public static final Integer OpCodePrefix = 0xFE;
+
 
     public static class TableIndexes {
         public static final Integer MODULETABLE = 0x00;
@@ -13,6 +19,7 @@ public class Constants {
         public static final Integer TYPEDEFTABLE = 0x02;
         public static final Integer FIELDTABLE = 0x04;
         public static final Integer METHODDEFTABLE = 0x06;
+        public static final Integer MEMBERREFTABLE = 0x0A;
     }
 
     public static class TableNames {
@@ -21,5 +28,6 @@ public class Constants {
         public static final String TYPEDEFTABLE = "TypeDef";
         public static final String FIELDTABLE = "Field";
         public static final String METHODDEFTABLE = "MethodDef";
+        public static final String MEMBERREFTABLE = "MemberRef";
     }
 }

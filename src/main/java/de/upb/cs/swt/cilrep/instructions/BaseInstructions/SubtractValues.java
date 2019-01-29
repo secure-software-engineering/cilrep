@@ -13,7 +13,7 @@ import de.upb.cs.swt.cilrep.instructions.Instruction;
 import java.util.ArrayList;
 import java.util.List;
 
-public class SubtractValues implements Instruction {
+public class SubtractValues extends Instruction {
     public final static Integer OpCode = 0x59;
     public final static  String AssemblyFormat = "sub";
 

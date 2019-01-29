@@ -14,7 +14,7 @@ import de.upb.cs.swt.cilrep.instructions.Instruction;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CopyDataMemToMem implements Instruction {
+public class CopyDataMemToMem extends Instruction {
     public final static Integer OpCode = 0xFE17;
     public final static String AssemblyFormat = "cpblk";
 

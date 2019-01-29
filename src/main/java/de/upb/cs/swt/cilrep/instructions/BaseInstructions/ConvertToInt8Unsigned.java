@@ -13,7 +13,7 @@ import de.upb.cs.swt.cilrep.instructions.Instruction;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ConvertToInt8Unsigned implements Instruction {
+public class ConvertToInt8Unsigned extends Instruction {
     public final static Integer OpCode = 0xD2;
     public final static String AssemblyFormat = "conv.u1";
 

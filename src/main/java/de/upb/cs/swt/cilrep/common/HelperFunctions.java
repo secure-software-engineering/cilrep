@@ -60,6 +60,10 @@ public class HelperFunctions {
         return extract;
     }
 
+    public static Integer getShiftedValOfByte(int _numOfShifts, byte _byte){
+        return _byte >> _numOfShifts;
+    }
+
     public static boolean checkIfCertainBitIsSet(long _bitVector, Integer _bitNumber){
         return (_bitVector & (1 << _bitNumber)) > 0;
     }

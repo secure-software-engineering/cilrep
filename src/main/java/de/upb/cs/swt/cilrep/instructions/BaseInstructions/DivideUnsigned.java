@@ -15,7 +15,7 @@ import de.upb.cs.swt.cilrep.instructions.Instruction;
 import java.util.ArrayList;
 import java.util.List;
 
-public class DivideUnsigned implements Instruction {
+public class DivideUnsigned extends Instruction {
     public final static Integer OpCode = 0x5C;
     public final static String AssemblyFormat = "div.un";
 

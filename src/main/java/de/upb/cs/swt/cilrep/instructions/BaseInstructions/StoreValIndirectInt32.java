@@ -14,7 +14,7 @@ import de.upb.cs.swt.cilrep.instructions.Instruction;
 import java.util.ArrayList;
 import java.util.List;
 
-public class StoreValIndirectInt32 implements Instruction {
+public class StoreValIndirectInt32 extends Instruction {
     public final static Integer OpCode = 0x54;
     public final static  String AssemblyFormat = "stind.i4";
 

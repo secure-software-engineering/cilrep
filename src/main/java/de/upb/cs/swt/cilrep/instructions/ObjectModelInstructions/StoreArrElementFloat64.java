@@ -17,7 +17,7 @@ import de.upb.cs.swt.cilrep.instructions.Instruction;
 import java.util.ArrayList;
 import java.util.List;
 
-public class StoreArrElementFloat64 implements Instruction {
+public class StoreArrElementFloat64 extends Instruction {
     public final static Integer OpCode = 0xA1;
     public final static String AssemblyFormat = "stelem.r8";
 

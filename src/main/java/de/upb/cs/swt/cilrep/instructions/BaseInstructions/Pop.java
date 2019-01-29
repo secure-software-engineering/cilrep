@@ -13,7 +13,7 @@ import de.upb.cs.swt.cilrep.instructions.Instruction;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Pop implements Instruction {
+public class Pop extends Instruction {
     public final static Integer OpCode = 0x26;
     public final static  String AssemblyFormat = "pop";
 

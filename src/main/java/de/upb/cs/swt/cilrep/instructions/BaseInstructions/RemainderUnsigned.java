@@ -14,7 +14,7 @@ import de.upb.cs.swt.cilrep.instructions.Instruction;
 import java.util.ArrayList;
 import java.util.List;
 
-public class RemainderUnsigned implements Instruction {
+public class RemainderUnsigned extends Instruction {
     public final static Integer OpCode = 0x5E;
     public final static  String AssemblyFormat = "rem.un";
 

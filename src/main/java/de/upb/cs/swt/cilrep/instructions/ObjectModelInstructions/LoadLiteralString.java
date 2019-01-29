@@ -9,11 +9,13 @@
 package de.upb.cs.swt.cilrep.instructions.ObjectModelInstructions;
 
 import de.upb.cs.swt.cilrep.instructions.Instruction;
+import de.upb.cs.swt.cilrep.instructions.ParameterTypes.StringParam;
+import de.upb.cs.swt.cilrep.instructions.ParameterTypes.TypesBase;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class LoadLiteralString implements Instruction {
+public class LoadLiteralString extends Instruction {
     public final static Integer OpCode = 0x72;
     public final static String AssemblyFormat = "ldstr";
 
@@ -29,5 +31,11 @@ public class LoadLiteralString implements Instruction {
     public List<Class> getThrownExceptions(){
         List<Class> exceptions = new ArrayList<Class>();
         return exceptions;
+    }
+    public TypesBase getParameter(){
+        if (this.parameter == null){
+            this.parameter = new StringParam();
+        }
+        return this.parameter;
     }
 }

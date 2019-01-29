@@ -15,7 +15,7 @@ import de.upb.cs.swt.cilrep.instructions.Instruction;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ConvertUnsignedToInt64UnOvf implements Instruction {
+public class ConvertUnsignedToInt64UnOvf extends Instruction {
     public final static Integer OpCode = 0x89;
     public final static String AssemblyFormat = "conv.ovf.u8.un";
 

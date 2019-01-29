@@ -13,7 +13,7 @@ import de.upb.cs.swt.cilrep.instructions.Instruction;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ConvertToInt8 implements Instruction {
+public class ConvertToInt8 extends Instruction {
     public final static Integer OpCode = 0x67;
     public final static String AssemblyFormat = "conv.i1";
 

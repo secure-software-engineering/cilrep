@@ -15,7 +15,7 @@ import de.upb.cs.swt.cilrep.instructions.Instruction;
 import java.util.ArrayList;
 import java.util.List;
 
-public class RethrowCurrentException implements Instruction {
+public class RethrowCurrentException extends Instruction {
     public final static Integer OpCode = 0xFE1A;
     public final static String AssemblyFormat = "rethrow";
 

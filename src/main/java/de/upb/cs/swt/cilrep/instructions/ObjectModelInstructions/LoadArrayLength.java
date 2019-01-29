@@ -18,7 +18,7 @@ import de.upb.cs.swt.cilrep.instructions.Instruction;
 import java.util.ArrayList;
 import java.util.List;
 
-public class LoadArrayLength implements Instruction {
+public class LoadArrayLength extends Instruction {
     public final static Integer OpCode = 0x8E;
     public final static String AssemblyFormat = "ldlen";
 

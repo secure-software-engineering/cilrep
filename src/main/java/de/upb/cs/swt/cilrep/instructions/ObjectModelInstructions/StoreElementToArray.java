@@ -10,11 +10,13 @@ package de.upb.cs.swt.cilrep.instructions.ObjectModelInstructions;
 
 import de.upb.cs.swt.cilrep.exceptions.*;
 import de.upb.cs.swt.cilrep.instructions.Instruction;
+import de.upb.cs.swt.cilrep.instructions.ParameterTypes.Token;
+import de.upb.cs.swt.cilrep.instructions.ParameterTypes.TypesBase;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class StoreElementToArray implements Instruction {
+public class StoreElementToArray extends Instruction {
     public final static Integer OpCode = 0xA4;
     public final static String AssemblyFormat = "stelem";
 
@@ -33,5 +35,12 @@ public class StoreElementToArray implements Instruction {
         exceptions.add(IndexOutOfRangeException.class);
         exceptions.add(ArrayTypeMismatchException.class);
         return exceptions;
+    }
+
+    public TypesBase getParameter(){
+        if (this.parameter == null){
+            this.parameter = new Token();
+        }
+        return this.parameter;
     }
 }

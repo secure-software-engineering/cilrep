@@ -13,7 +13,7 @@ import de.upb.cs.swt.cilrep.instructions.Instruction;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ConvertToInt64Unsigned implements Instruction {
+public class ConvertToInt64Unsigned extends Instruction {
     public final static Integer OpCode = 0x6E;
     public final static String AssemblyFormat = "conv.u8";
 

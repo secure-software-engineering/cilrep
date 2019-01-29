@@ -14,7 +14,7 @@ import de.upb.cs.swt.cilrep.instructions.Instruction;
 import java.util.ArrayList;
 import java.util.List;
 
-public class StoreValIndirectFloat64 implements Instruction {
+public class StoreValIndirectFloat64 extends Instruction {
     public final static Integer OpCode = 0x57;
     public final static  String AssemblyFormat = "stind.r8";
 

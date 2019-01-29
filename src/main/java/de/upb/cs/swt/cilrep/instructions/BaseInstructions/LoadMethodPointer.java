@@ -10,11 +10,13 @@ package de.upb.cs.swt.cilrep.instructions.BaseInstructions;
 
 import de.upb.cs.swt.cilrep.exceptions.MethodAccessException;
 import de.upb.cs.swt.cilrep.instructions.Instruction;
+import de.upb.cs.swt.cilrep.instructions.ParameterTypes.MemberRef;
+import de.upb.cs.swt.cilrep.instructions.ParameterTypes.TypesBase;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class LoadMethodPointer implements Instruction {
+public class LoadMethodPointer extends Instruction {
     public final static Integer OpCode = 0xFE06;
     public final static  String AssemblyFormat = "ldftn";
 
@@ -31,5 +33,11 @@ public class LoadMethodPointer implements Instruction {
         List<Class> exceptions = new ArrayList<Class>();
         exceptions.add(MethodAccessException.class);
         return exceptions;
+    }
+    public TypesBase getParameter(){
+        if (this.parameter == null){
+            this.parameter = new MemberRef();
+        }
+        return this.parameter;
     }
 }

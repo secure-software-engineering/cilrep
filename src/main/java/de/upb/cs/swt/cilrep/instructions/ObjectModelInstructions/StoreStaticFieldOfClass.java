@@ -10,11 +10,13 @@ package de.upb.cs.swt.cilrep.instructions.ObjectModelInstructions;
 
 import de.upb.cs.swt.cilrep.exceptions.*;
 import de.upb.cs.swt.cilrep.instructions.Instruction;
+import de.upb.cs.swt.cilrep.instructions.ParameterTypes.MemberRef;
+import de.upb.cs.swt.cilrep.instructions.ParameterTypes.TypesBase;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class StoreStaticFieldOfClass implements Instruction {
+public class StoreStaticFieldOfClass extends Instruction {
     public final static Integer OpCode = 0x80;
     public final static String AssemblyFormat = "stsfld";
 
@@ -32,5 +34,12 @@ public class StoreStaticFieldOfClass implements Instruction {
         exceptions.add(FieldAccessException.class);
         exceptions.add(MissingFieldException.class);
         return exceptions;
+    }
+
+    public TypesBase getParameter(){
+        if (this.parameter == null){
+            this.parameter = new MemberRef();
+        }
+        return this.parameter;
     }
 }

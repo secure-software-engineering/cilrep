@@ -15,7 +15,7 @@ import de.upb.cs.swt.cilrep.instructions.Instruction;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ConvertUnsignedToIntNativeOvf implements Instruction {
+public class ConvertUnsignedToIntNativeOvf extends Instruction {
     public final static Integer OpCode = 0x8A;
     public final static String AssemblyFormat = "conv.ovf.i.un";
 

@@ -13,7 +13,7 @@ import de.upb.cs.swt.cilrep.instructions.Instruction;
 import java.util.ArrayList;
 import java.util.List;
 
-public class LoadConstant8 implements Instruction {
+public class LoadConstant8 extends Instruction {
     public final static Integer OpCode = 0x1E;
     public final static  String AssemblyFormat = "ldc.i4.8";
 

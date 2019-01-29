@@ -13,7 +13,7 @@ import de.upb.cs.swt.cilrep.instructions.Instruction;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ConvertToInt16Unsigned implements Instruction {
+public class ConvertToInt16Unsigned extends Instruction {
     public final static Integer OpCode = 0xD1;
     public final static String AssemblyFormat = "conv.u2";
 

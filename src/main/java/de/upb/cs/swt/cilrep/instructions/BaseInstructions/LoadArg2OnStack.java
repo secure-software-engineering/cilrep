@@ -13,7 +13,7 @@ import de.upb.cs.swt.cilrep.instructions.Instruction;
 import java.util.ArrayList;
 import java.util.List;
 
-public class LoadArg2OnStack implements Instruction {
+public class LoadArg2OnStack extends Instruction {
     public final static Integer OpCode = 0x04;
     public final static String AssemblyFormat = "ldarg.2";
 

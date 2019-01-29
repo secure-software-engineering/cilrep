@@ -16,7 +16,7 @@ import de.upb.cs.swt.cilrep.instructions.Instruction;
 import java.util.ArrayList;
 import java.util.List;
 
-public class LoadFloat64FromArr implements Instruction {
+public class LoadFloat64FromArr extends Instruction {
     public final static Integer OpCode = 0x99;
     public final static String AssemblyFormat = "ldelem.r8";
 

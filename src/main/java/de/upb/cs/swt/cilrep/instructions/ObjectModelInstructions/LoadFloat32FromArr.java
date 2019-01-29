@@ -16,7 +16,7 @@ import de.upb.cs.swt.cilrep.instructions.Instruction;
 import java.util.ArrayList;
 import java.util.List;
 
-public class LoadFloat32FromArr implements Instruction {
+public class LoadFloat32FromArr extends Instruction {
     public final static Integer OpCode = 0x98;
     public final static String AssemblyFormat = "ldelem.r4";
 

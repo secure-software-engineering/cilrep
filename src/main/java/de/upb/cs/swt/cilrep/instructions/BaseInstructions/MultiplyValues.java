@@ -14,7 +14,7 @@ import de.upb.cs.swt.cilrep.instructions.Instruction;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MultiplyValues implements Instruction {
+public class MultiplyValues extends Instruction {
     public final static Integer OpCode = 0x5A;
     public final static  String AssemblyFormat = "mul";
 

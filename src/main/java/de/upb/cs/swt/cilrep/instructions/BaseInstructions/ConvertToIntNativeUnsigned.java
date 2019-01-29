@@ -13,7 +13,7 @@ import de.upb.cs.swt.cilrep.instructions.Instruction;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ConvertToIntNativeUnsigned implements Instruction {
+public class ConvertToIntNativeUnsigned extends Instruction {
     public final static Integer OpCode = 0xE0;
     public final static String AssemblyFormat = "conv.u";
 

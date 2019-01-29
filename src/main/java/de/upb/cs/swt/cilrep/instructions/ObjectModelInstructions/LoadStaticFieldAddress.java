@@ -11,11 +11,13 @@ package de.upb.cs.swt.cilrep.instructions.ObjectModelInstructions;
 import de.upb.cs.swt.cilrep.exceptions.FieldAccessException;
 import de.upb.cs.swt.cilrep.exceptions.MissingFieldException;
 import de.upb.cs.swt.cilrep.instructions.Instruction;
+import de.upb.cs.swt.cilrep.instructions.ParameterTypes.MemberRef;
+import de.upb.cs.swt.cilrep.instructions.ParameterTypes.TypesBase;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class LoadStaticFieldAddress implements Instruction {
+public class LoadStaticFieldAddress extends Instruction {
     public final static Integer OpCode = 0x7F;
     public final static String AssemblyFormat = "ldsflda";
 
@@ -33,5 +35,12 @@ public class LoadStaticFieldAddress implements Instruction {
         exceptions.add(FieldAccessException.class);
         exceptions.add(MissingFieldException.class);
         return exceptions;
+    }
+
+    public TypesBase getParameter(){
+        if (this.parameter == null){
+            this.parameter = new MemberRef();
+        }
+        return this.parameter;
     }
 }

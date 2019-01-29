@@ -15,7 +15,7 @@ import de.upb.cs.swt.cilrep.instructions.Instruction;
 import java.util.ArrayList;
 import java.util.List;
 
-public class LoadNull implements Instruction {
+public class LoadNull extends Instruction {
     public final static Integer OpCode = 0x14;
     public final static  String AssemblyFormat = "ldnull";
 

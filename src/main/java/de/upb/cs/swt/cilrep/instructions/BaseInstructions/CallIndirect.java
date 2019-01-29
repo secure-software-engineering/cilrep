@@ -9,15 +9,15 @@
 
 package de.upb.cs.swt.cilrep.instructions.BaseInstructions;
 
-import de.upb.cs.swt.cilrep.exceptions.MethodAccessException;
-import de.upb.cs.swt.cilrep.exceptions.MissingMethodException;
 import de.upb.cs.swt.cilrep.exceptions.SecurityException;
 import de.upb.cs.swt.cilrep.instructions.Instruction;
+import de.upb.cs.swt.cilrep.instructions.ParameterTypes.CallSiteDescription;
+import de.upb.cs.swt.cilrep.instructions.ParameterTypes.TypesBase;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class CallIndirect implements Instruction {
+public class CallIndirect extends Instruction {
     public final static Integer OpCode = 0x29;
     public final static String AssemblyFormat = "calli";
 
@@ -34,5 +34,12 @@ public class CallIndirect implements Instruction {
         ArrayList<Class> exceptions =  new ArrayList<>();
         exceptions.add(SecurityException.class);
         return exceptions;
+    }
+
+    public TypesBase getParameter(){
+        if (this.parameter == null){
+            this.parameter = new CallSiteDescription();
+        }
+        return this.parameter;
     }
 }

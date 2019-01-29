@@ -16,7 +16,7 @@ import de.upb.cs.swt.cilrep.instructions.Instruction;
 import java.util.ArrayList;
 import java.util.List;
 
-public class LoadIntNativeFromArr implements Instruction {
+public class LoadIntNativeFromArr extends Instruction {
     public final static Integer OpCode = 0x97;
     public final static String AssemblyFormat = "ldelem.i";
 

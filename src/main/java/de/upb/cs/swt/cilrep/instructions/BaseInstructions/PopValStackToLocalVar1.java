@@ -13,7 +13,7 @@ import de.upb.cs.swt.cilrep.instructions.Instruction;
 import java.util.ArrayList;
 import java.util.List;
 
-public class PopValStackToLocalVar1 implements Instruction {
+public class PopValStackToLocalVar1 extends Instruction {
     public final static Integer OpCode = 0x0B;
     public final static  String AssemblyFormat = "stloc.1";
 

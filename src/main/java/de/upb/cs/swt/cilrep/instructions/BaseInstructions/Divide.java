@@ -15,7 +15,7 @@ import de.upb.cs.swt.cilrep.instructions.Instruction;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Divide implements Instruction {
+public class Divide extends Instruction {
     public final static Integer OpCode = 0x5B;
     public final static String AssemblyFormat = "Div";
 

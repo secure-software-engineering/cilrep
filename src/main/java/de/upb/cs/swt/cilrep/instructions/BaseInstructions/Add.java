@@ -12,7 +12,7 @@ import de.upb.cs.swt.cilrep.instructions.Instruction;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Add implements Instruction {
+public class Add extends Instruction {
     public final static Integer OpCode = 0x58;
     public final static String AssemblyFormat = "add";
 

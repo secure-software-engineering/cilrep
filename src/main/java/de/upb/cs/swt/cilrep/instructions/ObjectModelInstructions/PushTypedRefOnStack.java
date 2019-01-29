@@ -10,11 +10,14 @@ package de.upb.cs.swt.cilrep.instructions.ObjectModelInstructions;
 
 import de.upb.cs.swt.cilrep.exceptions.TypeLoadException;
 import de.upb.cs.swt.cilrep.instructions.Instruction;
+import de.upb.cs.swt.cilrep.instructions.ParameterTypes.ClassParam;
+import de.upb.cs.swt.cilrep.instructions.ParameterTypes.MemberRef;
+import de.upb.cs.swt.cilrep.instructions.ParameterTypes.TypesBase;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class PushTypedRefOnStack implements Instruction {
+public class PushTypedRefOnStack extends Instruction {
     public final static Integer OpCode = 0xC6;
     public final static String AssemblyFormat = "mkrefany";
 
@@ -31,5 +34,12 @@ public class PushTypedRefOnStack implements Instruction {
         List<Class> exceptions = new ArrayList<Class>();
         exceptions.add(TypeLoadException.class);
         return exceptions;
+    }
+
+    public TypesBase getParameter(){
+        if (this.parameter == null){
+            this.parameter = new ClassParam();
+        }
+        return this.parameter;
     }
 }

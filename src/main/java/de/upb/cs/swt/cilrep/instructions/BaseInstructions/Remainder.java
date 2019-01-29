@@ -14,7 +14,7 @@ import de.upb.cs.swt.cilrep.instructions.Instruction;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Remainder implements Instruction {
+public class Remainder extends Instruction {
     public final static Integer OpCode = 0x5D;
     public final static  String AssemblyFormat = "rem";
 

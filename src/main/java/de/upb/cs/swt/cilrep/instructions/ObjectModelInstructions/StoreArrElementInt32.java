@@ -17,7 +17,7 @@ import de.upb.cs.swt.cilrep.instructions.Instruction;
 import java.util.ArrayList;
 import java.util.List;
 
-public class StoreArrElementInt32 implements Instruction {
+public class StoreArrElementInt32 extends Instruction {
     public final static Integer OpCode = 0x9E;
     public final static String AssemblyFormat = "stelem.i4";
 

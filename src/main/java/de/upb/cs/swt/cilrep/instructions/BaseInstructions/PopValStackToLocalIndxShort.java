@@ -9,11 +9,13 @@
 package de.upb.cs.swt.cilrep.instructions.BaseInstructions;
 
 import de.upb.cs.swt.cilrep.instructions.Instruction;
+import de.upb.cs.swt.cilrep.instructions.ParameterTypes.TypesBase;
+import de.upb.cs.swt.cilrep.instructions.ParameterTypes.UnsignedInt8;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class PopValStackToLocalIndxShort implements Instruction {
+public class PopValStackToLocalIndxShort extends Instruction {
     public final static Integer OpCode = 0x13;
     public final static  String AssemblyFormat = "stloc.s";
 
@@ -29,5 +31,12 @@ public class PopValStackToLocalIndxShort implements Instruction {
     public List<Class> getThrownExceptions(){
         List<Class> exceptions = new ArrayList<Class>();
         return exceptions;
+    }
+
+    public TypesBase getParameter(){
+        if (this.parameter == null){
+            this.parameter = new UnsignedInt8();
+        }
+        return this.parameter;
     }
 }

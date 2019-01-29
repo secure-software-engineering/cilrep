@@ -15,7 +15,7 @@ import de.upb.cs.swt.cilrep.instructions.Instruction;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MultiplyValUnsignedOvf implements Instruction {
+public class MultiplyValUnsignedOvf extends Instruction {
     public final static Integer OpCode = 0xD9;
     public final static  String AssemblyFormat = "mul.ovf";
 

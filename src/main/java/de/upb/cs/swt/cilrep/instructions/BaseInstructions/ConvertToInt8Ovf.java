@@ -15,7 +15,7 @@ import de.upb.cs.swt.cilrep.instructions.Instruction;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ConvertToInt8Ovf implements Instruction {
+public class ConvertToInt8Ovf extends Instruction {
     public final static Integer OpCode = 0xB3;
     public final static String AssemblyFormat = "conv.ovf.i1";
 

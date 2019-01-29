@@ -22,6 +22,14 @@ public class AssemblyComponents {
         fc = _fc;
     }
 
+    /**
+     * This method goes through the MethodDefTable
+     * and make a method entry for each row of the table
+     * and every entry of the method contains all the
+     * instructions in that method.
+     *
+     * @param _bytes
+     */
     public void populateMethods(byte[] _bytes){
         methods = new ArrayList<Method>();
         TildeStream ts = fc.mdRoot.getTildeStream();
@@ -38,10 +46,15 @@ public class AssemblyComponents {
         for (MethodDefTable.MethodDefTableRow row:
             rows){
             Method method = new Method();
-            TextSection textSection = TextSection.getInstance();
+            //TextSection textSection = TextSection.getInstance();
 
             method.Name = stringHeap.strings.get(row.NameIndex);
+
+            // populate method stuff from the file
+            method.populate(row, _bytes);
+
             methods.add(method);
         }
+        methods = methods;
     }
 }

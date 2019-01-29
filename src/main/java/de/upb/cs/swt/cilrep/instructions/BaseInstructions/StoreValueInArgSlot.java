@@ -9,11 +9,13 @@
 package de.upb.cs.swt.cilrep.instructions.BaseInstructions;
 
 import de.upb.cs.swt.cilrep.instructions.Instruction;
+import de.upb.cs.swt.cilrep.instructions.ParameterTypes.TypesBase;
+import de.upb.cs.swt.cilrep.instructions.ParameterTypes.UnsignedInt16;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class StoreValueInArgSlot implements Instruction {
+public class StoreValueInArgSlot extends Instruction {
     public final static Integer OpCode = 0xFE0B;
     public final static  String AssemblyFormat = "starg";
 
@@ -29,5 +31,12 @@ public class StoreValueInArgSlot implements Instruction {
     public List<Class> getThrownExceptions(){
         List<Class> exceptions = new ArrayList<Class>();
         return exceptions;
+    }
+
+    public TypesBase getParameter(){
+        if (this.parameter == null){
+            this.parameter = new UnsignedInt16();
+        }
+        return this.parameter;
     }
 }

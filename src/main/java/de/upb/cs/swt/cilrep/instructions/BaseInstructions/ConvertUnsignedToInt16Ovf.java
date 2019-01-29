@@ -15,7 +15,7 @@ import de.upb.cs.swt.cilrep.instructions.Instruction;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ConvertUnsignedToInt16Ovf implements Instruction {
+public class ConvertUnsignedToInt16Ovf extends Instruction {
     public final static Integer OpCode = 0x83;
     public final static String AssemblyFormat = "conv.ovf.i2.un";
 

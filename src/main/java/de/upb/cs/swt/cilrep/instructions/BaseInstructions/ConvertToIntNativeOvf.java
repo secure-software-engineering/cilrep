@@ -15,7 +15,7 @@ import de.upb.cs.swt.cilrep.instructions.Instruction;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ConvertToIntNativeOvf implements Instruction {
+public class ConvertToIntNativeOvf extends Instruction {
     public final static Integer OpCode = 0xD4;
     public final static String AssemblyFormat = "conv.ovf.i";
 

@@ -9,15 +9,17 @@
 package de.upb.cs.swt.cilrep.instructions.BaseInstructions;
 
 import de.upb.cs.swt.cilrep.instructions.Instruction;
+import de.upb.cs.swt.cilrep.instructions.ParameterTypes.Int32;
+import de.upb.cs.swt.cilrep.instructions.ParameterTypes.TypesBase;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class BranchOnEqual implements Instruction {
+public class BranchOnEqual extends Instruction {
     public final static Integer OpCode = 0x3B;
     public final static String AssemblyFormat = "beq";
 
-    public Integer Target = 0;
+    public Int32 Target = null;
 
     public Integer getOpCode(){
         return BranchOnEqual.OpCode;
@@ -28,5 +30,12 @@ public class BranchOnEqual implements Instruction {
 
     public List<Class> getThrownExceptions(){
         return new ArrayList<Class>();
+    }
+
+    public TypesBase getParameter(){
+        if (this.parameter == null){
+            this.parameter = new Int32();
+        }
+        return this.parameter;
     }
 }

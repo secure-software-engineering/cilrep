@@ -15,7 +15,7 @@ import de.upb.cs.swt.cilrep.instructions.Instruction;
 import java.util.ArrayList;
 import java.util.List;
 
-public class LoadValueIndirectInt16Uns implements Instruction {
+public class LoadValueIndirectInt16Uns extends Instruction {
     public final static Integer OpCode = 0x49;
     public final static  String AssemblyFormat = "ldind.u2";
 

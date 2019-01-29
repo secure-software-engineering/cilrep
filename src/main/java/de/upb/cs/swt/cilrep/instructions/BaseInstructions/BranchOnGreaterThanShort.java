@@ -9,11 +9,13 @@
 package de.upb.cs.swt.cilrep.instructions.BaseInstructions;
 
 import de.upb.cs.swt.cilrep.instructions.Instruction;
+import de.upb.cs.swt.cilrep.instructions.ParameterTypes.Int8;
+import de.upb.cs.swt.cilrep.instructions.ParameterTypes.TypesBase;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class BranchOnGreaterThanShort implements Instruction {
+public class BranchOnGreaterThanShort extends Instruction {
     public final static Integer OpCode = 0x30;
     public final static String AssemblyFormat = "bgt.s";
 
@@ -28,5 +30,12 @@ public class BranchOnGreaterThanShort implements Instruction {
 
     public List<Class> getThrownExceptions(){
         return new ArrayList<Class>();
+    }
+
+    public TypesBase getParameter(){
+        if (this.parameter == null){
+            this.parameter = new Int8();
+        }
+        return this.parameter;
     }
 }

@@ -17,7 +17,7 @@ import de.upb.cs.swt.cilrep.instructions.Instruction;
 import java.util.ArrayList;
 import java.util.List;
 
-public class LoadFieldAddress implements Instruction {
+public class LoadFieldAddress extends Instruction {
     public final static Integer OpCode = 0x7C;
     public final static String AssemblyFormat = "ldflda";
 

@@ -15,7 +15,7 @@ import de.upb.cs.swt.cilrep.instructions.Instruction;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ConvertToInt16Overflow implements Instruction {
+public class ConvertToInt16Overflow extends Instruction {
     public final static Integer OpCode = 0xB5;
     public final static String AssemblyFormat = "conv.ovf.i2";
 

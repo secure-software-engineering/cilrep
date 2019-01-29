@@ -14,7 +14,7 @@ import de.upb.cs.swt.cilrep.instructions.Instruction;
 import java.util.ArrayList;
 import java.util.List;
 
-public class LoadTypeFromTypeRef implements Instruction {
+public class LoadTypeFromTypeRef extends Instruction {
     public final static Integer OpCode = 0xFE1D;
     public final static String AssemblyFormat = "Refanytype";
 

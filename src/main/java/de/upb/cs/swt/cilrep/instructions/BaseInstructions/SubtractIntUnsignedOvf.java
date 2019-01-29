@@ -15,7 +15,7 @@ import de.upb.cs.swt.cilrep.instructions.Instruction;
 import java.util.ArrayList;
 import java.util.List;
 
-public class SubtractIntUnsignedOvf implements Instruction {
+public class SubtractIntUnsignedOvf extends Instruction {
     public final static Integer OpCode = 0xDB;
     public final static  String AssemblyFormat = "sub.ovf.un";
 

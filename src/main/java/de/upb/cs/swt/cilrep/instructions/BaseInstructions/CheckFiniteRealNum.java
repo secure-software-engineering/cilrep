@@ -14,7 +14,7 @@ import de.upb.cs.swt.cilrep.instructions.Instruction;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CheckFiniteRealNum implements Instruction {
+public class CheckFiniteRealNum extends Instruction {
     public final static Integer OpCode = 0xC3;
     public final static String AssemblyFormat = "Ckfinite";
 

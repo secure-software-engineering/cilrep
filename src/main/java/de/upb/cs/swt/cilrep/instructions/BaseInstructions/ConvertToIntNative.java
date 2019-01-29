@@ -13,7 +13,7 @@ import de.upb.cs.swt.cilrep.instructions.Instruction;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ConvertToIntNative implements Instruction {
+public class ConvertToIntNative extends Instruction {
     public final static Integer OpCode = 0xD3;
     public final static String AssemblyFormat = "conv.i";
 

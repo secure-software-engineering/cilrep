@@ -17,7 +17,7 @@ import de.upb.cs.swt.cilrep.instructions.Instruction;
 import java.util.ArrayList;
 import java.util.List;
 
-public class StoreArrElementWithRef implements Instruction {
+public class StoreArrElementWithRef extends Instruction {
     public final static Integer OpCode = 0xA2;
     public final static String AssemblyFormat = "stelem.ref";
 

@@ -8,15 +8,15 @@
 
 package de.upb.cs.swt.cilrep.instructions.BaseInstructions;
 
-import de.upb.cs.swt.cilrep.exceptions.SkipVerification;
-import de.upb.cs.swt.cilrep.exceptions.VerificationException;
 import de.upb.cs.swt.cilrep.instructions.Instruction;
+import de.upb.cs.swt.cilrep.instructions.ParameterTypes.Int32;
+import de.upb.cs.swt.cilrep.instructions.ParameterTypes.TypesBase;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class LeaveRegionOfCode implements Instruction {
-    public final static Integer OpCode = 0xDD;
+public class LeaveRegionOfCode extends Instruction {
+    public final static Integer OpCode = 0xDE;
     public final static  String AssemblyFormat = "leave";
 
     public Integer Target = 0; // to be changed later on
@@ -31,5 +31,12 @@ public class LeaveRegionOfCode implements Instruction {
     public List<Class> getThrownExceptions(){
         List<Class> exceptions = new ArrayList<Class>();
         return exceptions;
+    }
+
+    public TypesBase getParameter(){
+        if (this.parameter == null){
+            this.parameter = new Int32();
+        }
+        return this.parameter;
     }
 }

@@ -16,7 +16,7 @@ import de.upb.cs.swt.cilrep.instructions.Instruction;
 import java.util.ArrayList;
 import java.util.List;
 
-public class LoadInt8UnsFromArr implements Instruction {
+public class LoadInt8UnsFromArr extends Instruction {
     public final static Integer OpCode = 0x91;
     public final static String AssemblyFormat = "ldelem.u1";
 

@@ -9,11 +9,13 @@
 package de.upb.cs.swt.cilrep.instructions.BaseInstructions;
 
 import de.upb.cs.swt.cilrep.instructions.Instruction;
+import de.upb.cs.swt.cilrep.instructions.ParameterTypes.Int8;
+import de.upb.cs.swt.cilrep.instructions.ParameterTypes.TypesBase;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class BranchOnEqualShort implements Instruction {
+public class BranchOnEqualShort extends Instruction {
     public final static Integer OpCode = 0x2E;
     public final static String AssemblyFormat = "beq.s";
 
@@ -28,5 +30,12 @@ public class BranchOnEqualShort implements Instruction {
 
     public List<Class> getThrownExceptions(){
         return new ArrayList<Class>();
+    }
+
+    public TypesBase getParameter(){
+        if (this.parameter == null){
+            this.parameter = new Int8();
+        }
+        return this.parameter;
     }
 }
